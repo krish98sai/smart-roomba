@@ -10,7 +10,7 @@ const int packetSize = 2;
 byte packet[packetSize];
 
 // Roomba selection
-//Roomba roomba(&Serial, Roomba::Baud115200);
+Roomba roomba(&Serial, Roomba::Baud115200);
 
 void connect_wifi(){
   WiFi.begin(ssid, password);
@@ -19,8 +19,13 @@ void connect_wifi(){
   const IPAddress ip_mask = IPAddress(255, 255, 255, 0);
   WiFi.config(ip, ip_host, ip_mask);
 
+  int timeout = 0;
   while(WiFi.status() != WL_CONNECTED){
+    if(timeout >= 60000){
+      break;
+    }
     delay(500);
+    timeout += 500;
   }
 }
 
@@ -48,101 +53,62 @@ void callbackUDPServer(){
 }
 
 void execCommand(String command){
-  if(command.equals("00")){
-    forwardDrive();
-  } else if(command.equals("01")){
-    backwardDrive();
-  } else if(command.equals("02")){
+  if(command.equals("SM")){
+    roomba.safeMode();
+  } else if(command.equals("FM")){
+    roomba.fullMode();
+  } else if(command.equals("UP")){
+    driveForward();
+  } else if(command.equals("DN")){
+    driveBackward();
+  } else if(command.equals("RT")){
     rotateRight();
-  } else if(command.equals("03")){
+  } else if(command.equals("LT")){
     rotateLeft();
   } else if(command.equals("CL")){
-    startCleaning();
+    roomba.demo(Roomba::DemoCover);
+  } else if(command.equals("DK")){
+    roomba.dock();
   } else if(command.equals("ST")){
-    stopCleaning();
+    roomba.demo(Roomba::DemoAbort);
   } else{
     // Do nothing
   }
 }
 
-void setupRoombaBaud(){
-  Serial.write(129);
-  delay(50);
-  Serial.write(11);
-  delay(50);
-}
-
-void startCleaning(){
-  Serial.write(136);
-  delay(50);
-  Serial.write(0);
-}
-
-void stopCleaning(){
-  Serial.write(136);
-  delay(50);
-  Serial.write(255);
-}
-
-void forwardDrive(){
-  Serial.write(137);
-  Serial.write((byte)0x00);
-  Serial.write(0xc8);
-  Serial.write(0x80);
-  Serial.write((byte)0x00);
+void driveForward(){
+  roomba.drive(200, Roomba::DriveStraight);
   delay(1000);
   stopDrive();
 }
 
-void backwardDrive(){
-  Serial.write(137);
-  Serial.write(0xff);
-  Serial.write(0x38);
-  Serial.write(0x80);
-  Serial.write((byte)0x00);
+void driveBackward(){
+  roomba.drive(-200, Roomba::DriveStraight);
   delay(1000);
   stopDrive();
 }
 
 void rotateRight(){
-  Serial.write(137);
-  Serial.write((byte)0x00);
-  Serial.write(0x0f);
-  Serial.write(0xff);
-  Serial.write(0xff);
+  roomba.drive(200, Roomba::DriveInPlaceClockwise);
   delay(1000);
   stopDrive();
 }
 
 void rotateLeft(){
-  Serial.write(137);
-  Serial.write((byte)0x00);
-  Serial.write(0x0f);
-  Serial.write((byte)0x00);
-  Serial.write(0x01);
+  roomba.drive(200, Roomba::DriveInPlaceCounterClockwise);
   delay(1000);
   stopDrive();
 }
 
 void stopDrive(){
-  Serial.write(137);
-  Serial.write((byte)0x00);
-  Serial.write((byte)0x00);
-  Serial.write((byte)0x00);
-  Serial.write((byte)0x00);
+  roomba.drive(0, 0);
 }
 
 void setup(){
   Serial.begin(115200);
-  //setupRoombaBaud();
   connect_wifi();
-  delay(50);
-  Serial.write(128); // listen io mode
-  delay(50);
+  roomba.start();
   startUDPServer();
-  delay(50);
-  Serial.write(132); // full mode
-  delay(50);
 }
 
 void loop(){

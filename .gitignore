@@ -7,4 +7,4 @@ SimpleTimer.zip
 pubsubclient-master.zip
 
 // Credentials
-Credentials.cpp
+smart-roomba-arduino/libraries/Credentials/Credentials.h

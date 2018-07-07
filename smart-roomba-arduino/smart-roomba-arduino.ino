@@ -1,12 +1,7 @@
 #include <ESP8266WiFi.h>
 #include <WiFiUdp.h>
 #include <Roomba.h>
-#include <Credentials.h>
-
-// General WiFi credentials
-Credentials credentials();
-const char* ssid = credentials.ssid;
-const char* password = credentials.password;
+#include "libraries/Credentials/Credentials.h"
 
 // UDP server config
 WiFiUDP UDPControlServer;

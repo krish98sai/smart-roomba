@@ -13,7 +13,7 @@ byte packet[packetSize];
 Roomba roomba(&Serial, Roomba::Baud115200);
 
 void connect_wifi(){
-  WiFi.begin(ssid, password);
+  WiFi.begin(SSID, PASSWORD);
   const IPAddress ip = IPAddress(10, 0, 0, 60);
   const IPAddress ip_host = IPAddress(10, 0, 0, 1);
   const IPAddress ip_mask = IPAddress(255, 255, 255, 0);

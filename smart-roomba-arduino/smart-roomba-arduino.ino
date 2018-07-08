@@ -78,25 +78,25 @@ void execCommand(String command){
 
 void driveForward(){
   roomba.drive(200, Roomba::DriveStraight);
-  delay(1000);
+  delay(500);
   stopDrive();
 }
 
 void driveBackward(){
   roomba.drive(-200, Roomba::DriveStraight);
-  delay(1000);
+  delay(500);
   stopDrive();
 }
 
 void rotateRight(){
   roomba.drive(200, Roomba::DriveInPlaceClockwise);
-  delay(1000);
+  delay(100);
   stopDrive();
 }
 
 void rotateLeft(){
   roomba.drive(200, Roomba::DriveInPlaceCounterClockwise);
-  delay(1000);
+  delay(100);
   stopDrive();
 }
 

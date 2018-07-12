@@ -2,4 +2,10 @@
     <string name="app_name">Smart Roomba</string>
     <string name="title_home">Home</string>
     <string name="title_drive">Manual Drive</string>
+    <string name="record">Record</string>
+    <string name="recorded_paths">Recorded paths</string>
+    <string name="rotate_right">Rotate right</string>
+    <string name="rotate_left">Rotate left</string>
+    <string name="drive_backwards">Drive backwards</string>
+    <string name="drive_forwards">Drive forwards</string>
 </resources>

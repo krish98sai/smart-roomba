@@ -78,13 +78,13 @@ void execCommand(String command){
 
 void driveForward(){
   roomba.drive(200, Roomba::DriveStraight);
-  delay(500);
+  delay(100);
   stopDrive();
 }
 
 void driveBackward(){
   roomba.drive(-200, Roomba::DriveStraight);
-  delay(500);
+  delay(100);
   stopDrive();
 }
 

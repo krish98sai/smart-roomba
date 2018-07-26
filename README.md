@@ -11,7 +11,7 @@
 6. Breadboard
 7. 3.3 V Breadboard Power Supply
 
-### Required Dependencies
+#### Required Dependencies
 - Roomba library for Arduino
   - http://www.airspayce.com/mikem/arduino/Roomba/Roomba-1.3.zip
 - SimpleTimer library for Arduino

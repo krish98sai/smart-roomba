@@ -22,7 +22,7 @@
 
 #### Installation
 1. Connect components using circuit diagram:
-![Flashing circuit diagram](./circuit-diagrams/programming_esp8266.png | width=100)
+![Flashing circuit diagram](./circuit-diagrams/programming_esp8266.png =100x)
 2. Ensure GPIO0 is connected to ground
 3. Connect TTL converter to computer (Keep breadboard power supply off)
 4. Bring up Arduino IDE and open ./smart-roomba-arduino/smart-roomba-arduino.ino
@@ -34,7 +34,7 @@
 #### Running
 1. Wake Roomba from sleep (Ensure buttons are lit up)
 2. Connect components using circuit diagram:
-![Roomba circuit diagram](./circuit-diagrams/roomba_esp8266.png| width=100)
+![Roomba circuit diagram](./circuit-diagrams/roomba_esp8266.png =100x)
 
 ### Android
 #### Installation

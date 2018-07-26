@@ -20,8 +20,9 @@
 6. Breadboard
 7. 3.3 V Breadboard Power Supply
 
-#### Installation for Flashing
-1. Connect components using ./circuit-diagrams/programming_esp8266.png circuit diagram
+#### Installation
+1. Connect components using circuit diagram:
+![Flashing circuit diagram](./circuit-diagrams/programming_esp8266.png)
 2. Ensure GPIO0 is connected to ground
 3. Connect TTL converter to computer (Keep breadboard power supply off)
 4. Bring up Arduino IDE and open ./smart-roomba-arduino/smart-roomba-arduino.ino
@@ -30,13 +31,21 @@
 7. Press upload and turn on breadboard power supply when Arduino IDE says "Uploading..."
 8. After the program is fully uploaded, unplug the GPIO0 pin from ground
 
-#### Installation for Roomba
+#### Running
 1. Wake Roomba from sleep (Ensure buttons are lit up)
-2. Connect components using ./circuit-diagrams/roomba_esp8266.png circuit diagram
+2. Connect components using circuit diagram:
+![Roomba circuit diagram](./circuit-diagrams/roomba_esp8266.png)
 
 ### Android
 #### Installation
-1.
+1. Open ./smart-roomba-android/ in Android Studio IDE
+2. Build the project (Build > Make Project)
+3. Plug-in and turn on Android device
+4. Run the app (Run > Run 'app')
+5. Select the correct device from the 'Select Deployment Target' and press "OK"
+
+#### Running
+1. Open "Smart Roomba" app on Android device
 
 ## Borrowed Resources
 <div>Icons made by <a href="https://www.flaticon.com/authors/google" title="Google">Google</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>

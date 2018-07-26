@@ -1,13 +1,4 @@
-# smart-roomba
-
-## Dependencies
-### Arduino libraries
-- Roomba library for Arduino
-  - http://www.airspayce.com/mikem/arduino/Roomba/Roomba-1.3.zip
-- SimpleTimer library for Arduino
-  - https://github.com/jfturcot/SimpleTimer
-- Arduino Client for MQTT
-  - https://github.com/knolleary/pubsubclient
+# Smart Roomba
 
 ## Installation Guide
 ### Hardware and Flashing
@@ -19,6 +10,14 @@
 5. FT232 USB to TTL converter (Or something that can flash the ESP8266-01)
 6. Breadboard
 7. 3.3 V Breadboard Power Supply
+
+### Required Dependencies
+- Roomba library for Arduino
+  - http://www.airspayce.com/mikem/arduino/Roomba/Roomba-1.3.zip
+- SimpleTimer library for Arduino
+  - https://github.com/jfturcot/SimpleTimer
+- Arduino Client for MQTT
+  - https://github.com/knolleary/pubsubclient
 
 #### Installation
 1. Connect components using circuit diagram:

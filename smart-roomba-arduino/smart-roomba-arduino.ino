@@ -12,10 +12,32 @@ byte packet[packetSize];
 // Roomba selection
 Roomba roomba(&Serial, Roomba::Baud115200);
 
+IPAddress get_ip_from_str(String ip_str){
+  int addr [4];
+  istringstream iss(ip_str);
+  std::string token;
+  for (int i = 0; str::getline(iss, token, '.'); i++){
+    if (!token.empty())
+      addr[i] = atoi(token.c_str());
+  }
+  return IPAddress(addr[0], addr[1], addr[2], addr[3]);
+}
+
+IPAddress get_ip_host_from_str(String ip_str){
+  int addr [4];
+  istringstream iss(ip_str);
+  std::string token;
+  for (int i = 0; str::getline(iss, token, '.'); i++){
+    if (!token.empty())
+      addr[i] = atoi(token.c_str());
+  }
+  return IPAddress(addr[0], addr[1], addr[2], 1);
+}
+
 void connect_wifi(){
   WiFi.begin(SSID, PASSWORD);
-  const IPAddress ip = IPAddress(10, 0, 0, 60);
-  const IPAddress ip_host = IPAddress(10, 0, 0, 1);
+  const IPAddress ip = get_ip_from_str(IP_ADDRESS);
+  const IPAddress ip_host = get_ip_host_from_str(IP_ADDRESS);
   const IPAddress ip_mask = IPAddress(255, 255, 255, 0);
   WiFi.config(ip, ip_host, ip_mask);
 

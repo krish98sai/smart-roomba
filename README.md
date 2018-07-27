@@ -27,7 +27,7 @@
 3. Connect TTL converter to computer (Keep breadboard power supply off)
 4. Bring up Arduino IDE and open ./smart-roomba-arduino/smart-roomba-arduino.ino
 5. Ensure all dependencies are installed
-6. Rename Credentials.h~ to Credentials.h and replace placeholder SSID and PASSWORD with actual values
+6. Rename Credentials.h~ to Credentials.h and replace placeholder SSID, PASSWORD, and IP_ADDRESS with actual values
 7. Press upload and turn on breadboard power supply when Arduino IDE says "Uploading..."
 8. After the program is fully uploaded, unplug the GPIO0 pin from ground
 

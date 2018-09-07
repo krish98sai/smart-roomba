@@ -1,6 +1,7 @@
 package com.saikrishnarao.smartroomba
 
 import android.os.Bundle
+import android.os.Handler
 import android.support.v7.preference.PreferenceFragmentCompat
 import android.util.Log
 
@@ -14,6 +15,20 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
         buttonRoombaTestConnection.setOnPreferenceClickListener {
             Log.d("CLICK", "THE FIRST PREFERENCE BUTTON WAS CLICKED")
+
+            buttonRoombaTestConnection.summary = "Status: Testing..."
+            val udpServerThread = UdpServerThread(2807, buttonRoombaTestConnection)
+            buttonRoombaTestConnection.isEnabled = false
+            udpServerThread.start()
+            Handler().postDelayed({
+                udpServerThread.setRunning(false)
+                if (buttonRoombaTestConnection.summary == "Status: Testing..."){
+                    buttonRoombaTestConnection.summary = "Status: Not Connected"
+                    buttonRoombaTestConnection.isEnabled = true
+                }
+            }, 10000)
+            RoombaControlAsyncTask().execute(RoombaControl.TEST_CONNECTION.byteArray)
+
             true
             /*
             Steps to make this happen:

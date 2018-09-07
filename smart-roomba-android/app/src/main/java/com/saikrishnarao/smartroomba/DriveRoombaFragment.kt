@@ -1,11 +1,9 @@
 package com.saikrishnarao.smartroomba
 
 import android.os.Bundle
-import android.os.Handler
 import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_drive_roomba.*
@@ -37,5 +35,8 @@ class DriveRoombaFragment : Fragment() {
             Log.d("BUTTON", "RIGHT")
             RoombaControlAsyncTask().execute(RoombaControl.RIGHT.byteArray)
         }))
+        button_full_mode.setOnClickListener {
+            RoombaControlAsyncTask().execute(RoombaControl.FULL_MODE.byteArray)
+        }
     }
 }

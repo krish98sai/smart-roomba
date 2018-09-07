@@ -8,4 +8,6 @@
     <string name="rotate_left">Rotate left</string>
     <string name="drive_backwards">Drive backwards</string>
     <string name="drive_forwards">Drive forwards</string>
+    <string name="full_mode">Full Mode</string>
+    <string name="title_settings">Settings</string>
 </resources>

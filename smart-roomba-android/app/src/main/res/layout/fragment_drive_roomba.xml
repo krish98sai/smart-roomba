@@ -70,4 +70,10 @@
         android:drawableStart="@drawable/ic_format_list_bulleted_black_24dp"
         android:text="@string/recorded_paths" />
 
+    <Button
+        android:id="@+id/button_full_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="@string/full_mode" />
+
 </LinearLayout>

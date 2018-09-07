@@ -1,6 +1,7 @@
 package com.saikrishnarao.smartroomba
 
 enum class RoombaControl(val byteArray: ByteArray) {
+    START_BAUD(byteArrayOf(83, 66)),
     FULL_MODE(byteArrayOf(70, 77)),
     SAFE_MODE(byteArrayOf(83, 77)),
     UP(byteArrayOf(85, 80)),

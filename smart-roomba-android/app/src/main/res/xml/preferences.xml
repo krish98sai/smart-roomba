@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Roomba">
+        <EditTextPreference
+            android:key="roomba_ip"
+            android:title="Roomba Host"
+            android:summary="Enter the IP/URL and Port of your ESP8266-01"
+            android:icon="@drawable/ic_sweeper_24dp"
+            android:defaultValue="10.0.0.60:2807"/>
+        <Preference
+            android:key="button_roomba_test_connection"
+            android:title="Test Roomba Connection"
+            android:summary="Status: Not Connected"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Home Assistant">
+        <SwitchPreference
+            android:key="enable_home_assistant"
+            android:title="Home Assistant"
+            android:summary="Allows interaction through running Home Assistant server"
+            android:icon="@drawable/ic_server_24dp"
+            android:defaultValue="false"/>
+        <EditTextPreference
+            android:key="home_assistant_ip"
+            android:dependency="enable_home_assistant"
+            android:title="HA Host"
+            android:summary="Enter the IP/URL and Port of your Home Assistant server"
+            android:defaultValue="10.0.0.132:8123"/>
+        <EditTextPreference
+            android:key="home_assistant_username"
+            android:dependency="enable_home_assistant"
+            android:title="HA Username"
+            android:summary="Enter the username of your Home Assistant server"/>
+        <EditTextPreference
+            android:key="home_assistant_password"
+            android:dependency="enable_home_assistant"
+            android:inputType="textPassword"
+            android:title="HA Password"
+            android:summary="Enter the password of your Home Assistant server"/>
+        <Preference
+            android:key="button_home_assistant_test_connection"
+            android:dependency="enable_home_assistant"
+            android:title="Test HA Connection"
+            android:summary="Status: Not Connected"/>
+        <Preference
+            android:key="temp"
+            android:dependency="temp"
+            android:title="temp"
+            android:summary="temp"/>
+    </PreferenceCategory>
+</PreferenceScreen>
